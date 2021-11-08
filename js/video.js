@@ -37,11 +37,25 @@ document.querySelector("#faster").addEventListener("click", function(){
 // skip ahead
 document.querySelector("#skip").addEventListener("click", function(){
 	video.currentTime = video.currentTime + 15
-	console.log(video.currentTime)
+	// handle case where video ends,  loops back to beginning
 	video.addEventListener("ended", function(){
 		video.currentTime = 0
-		video.play()
+		video.play() 
 	})
+	console.log(video.currentTime)
+})
+
+// slider thing
+
+
+// slider
+document.querySelector("#slider").addEventListener("change", function(){
+	console.log("clicked slider")
+	var volume = document.querySelector("#slider").value
+	var display = document.querySelector("#volume")
+	display.innerHTML = volume + "%"
+	video.volume = volume / 100
+	console.log(video.volume)
 })
 
 //  mute video
