@@ -34,6 +34,16 @@ document.querySelector("#faster").addEventListener("click", function(){
 	console.log(video.playbackRate)
 })
 
+// skip ahead
+document.querySelector("#skip").addEventListener("click", function(){
+	video.currentTime = video.currentTime + 15
+	console.log(video.currentTime)
+	video.addEventListener("ended", function(){
+		video.currentTime = 0
+		video.play()
+	})
+})
+
 //  mute video
  document.querySelector("#mute").addEventListener('click', function() {
 	 console.log("Muted Video")
