@@ -23,6 +23,7 @@ document.querySelector("#play").addEventListener("click", function() {
 document.querySelector("#slower").addEventListener("click", function(){
 	console.log("slowing down video")
 	video.playbackRate = (video.playbackRate * 0.95)
+	console.log(video.volume)
 	console.log(video.playbackRate)
 
 })
@@ -64,10 +65,12 @@ document.querySelector("#slider").addEventListener("change", function(){
 //  old school style
 document.querySelector("#vintage").addEventListener("click", function(){
 	video.classList.add("oldSchool")
+	console.log("Changed to old school style")
 })
 
 // original style
 document.querySelector("#orig").addEventListener("click", function(){
 	video.classList.remove("oldSchool")
+	console.log("Changed to original school style")
 })
 
