@@ -45,9 +45,6 @@ document.querySelector("#skip").addEventListener("click", function(){
 	console.log(video.currentTime)
 })
 
-// slider thing
-
-
 // slider
 document.querySelector("#slider").addEventListener("change", function(){
 	console.log("clicked slider")
@@ -63,4 +60,14 @@ document.querySelector("#slider").addEventListener("change", function(){
 	 console.log("Muted Video")
 	 video.muted = true
  })
+
+//  old school style
+document.querySelector("#vintage").addEventListener("click", function(){
+	video.classList.add("oldSchool")
+})
+
+// original style
+document.querySelector("#orig").addEventListener("click", function(){
+	video.classList.remove("oldSchool")
+})
 
