@@ -11,6 +11,9 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video")
 	video.play()
+	var display = document.querySelector("#volume")
+	display.innerHTML = document.querySelector("#slider").value + "%"
+
  });
 
 // implement pause button
@@ -21,29 +24,28 @@ document.querySelector("#play").addEventListener("click", function() {
 
 //  slow down
 document.querySelector("#slower").addEventListener("click", function(){
-	console.log("slowing down video")
 	video.playbackRate = (video.playbackRate * 0.95)
 	console.log(video.volume)
-	console.log(video.playbackRate)
+	console.log("New speed is:" + video.playbackRate)
 
 })
 
 // speed up
 document.querySelector("#faster").addEventListener("click", function(){
-	console.log("speeding up video")
 	video.playbackRate = (video.playbackRate / 0.95)
-	console.log(video.playbackRate)
+	console.log("New speed is: " + video.playbackRate)
 })
 
 // skip ahead
 document.querySelector("#skip").addEventListener("click", function(){
+	console.log("Current location: " + video.currentTime)
 	video.currentTime = video.currentTime + 15
 	// handle case where video ends,  loops back to beginning
 	video.addEventListener("ended", function(){
 		video.currentTime = 0
 		video.play() 
 	})
-	console.log(video.currentTime)
+	console.log("New location at: " + video.currentTime)
 })
 
 // slider
@@ -59,7 +61,14 @@ document.querySelector("#slider").addEventListener("change", function(){
 //  mute video
  document.querySelector("#mute").addEventListener('click', function() {
 	 console.log("Muted Video")
-	 video.muted = true
+	 var muteButton = document.querySelector("#mute")
+	 video.muted = !video.muted
+	 if (video.muted == true)  {
+		 muteButton.innerHTML = 'Unmute'
+	 }
+	else if (video.muted == false) {
+		 muteButton.innerHTML = 'Mute'
+	 }
  })
 
 //  old school style
