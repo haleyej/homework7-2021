@@ -39,12 +39,21 @@ document.querySelector("#faster").addEventListener("click", function(){
 // skip ahead
 document.querySelector("#skip").addEventListener("click", function(){
 	console.log("Current location: " + video.currentTime)
-	video.currentTime = video.currentTime + 15
-	// handle case where video ends,  loops back to beginning
-	video.addEventListener("ended", function(){
+	var time = video.currentTime
+	var duration = video.duration
+
+	if ((time + 15) < duration)  {
+		video.currentTime = time + 15
+	}
+   else if ((time + 15) >= duration) {
 		video.currentTime = 0
-		video.play() 
-	})
+	}
+	// video.currentTime = video.currentTime + 15
+	// handle case where video ends,  loops back to beginning
+	// video.addEventListener("ended", function(){
+		// video.currentTime = 0
+		// video.play() 
+	// })
 	console.log("New location at: " + video.currentTime)
 })
 
